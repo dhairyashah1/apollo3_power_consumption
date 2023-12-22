@@ -25,7 +25,9 @@ make <make_target> BOARD=<board_target> COM_PORT=<port> PYTHON=<python> SVL_UPLO
   - `<make_target>` = `clean`, `bootload_svl` and `bootload_asb`
   - `<board_target` = `edge`, `edge2`, `artemis_devkit`, `redboard_artemis_atp`, etc
   - `<port>` = `COMxx` on Windows, `/dev/ttyUSBx` on Linux
-6. Evaluate the current / power consumption using the power profiler
+6. Evaluate the current / power consumption using the power profiler. Nordic PPK2 Interface -
+![image](https://github.com/dhairyashah1/apollo3_power_consumption/assets/64425805/6790d372-6d8e-42b1-84c6-44e9c2d58e5e)
+ 
 
 ## Results
 ![image](https://github.com/dhairyashah1/apollo3_power_consumption/assets/64425805/b38b0eda-f7aa-4812-9b45-0fc683499c39)
