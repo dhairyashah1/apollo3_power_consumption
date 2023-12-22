@@ -22,49 +22,49 @@ int
 main(void)
 {
     // Select the clock source corresponding to the mode
-	//*****************************************************************************
+    //*****************************************************************************
     #ifdef div2_mode
-		am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_SYSCLK_DIV2, 0);
-	#elif defined (turbo_spot_mode)
-	#else
-		am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_SYSCLK_MAX, 0);
+        am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_SYSCLK_DIV2, 0);
+    #elif defined (turbo_spot_mode)
+    #else
+        am_hal_clkgen_control(AM_HAL_CLKGEN_CONTROL_SYSCLK_MAX, 0);
     #endif
-	//*****************************************************************************
+    //*****************************************************************************
 
     // Set the default cache configuration
-	//*****************************************************************************
+    //*****************************************************************************
     am_hal_cachectrl_config(&am_hal_cachectrl_defaults);
     am_hal_cachectrl_enable();
-	//*****************************************************************************
+    //*****************************************************************************
 
-	// Turbo-Spot Mode
-	//*****************************************************************************
+    // Turbo-Spot Mode
+    //*****************************************************************************
     #ifdef turbo_spot_mode
-		am_hal_burst_avail_e          eBurstModeAvailable;
-		am_hal_burst_mode_e           eBurstMode;
-		if ( am_hal_burst_mode_initialize(&eBurstModeAvailable) == AM_HAL_STATUS_SUCCESS )
-		{
-		am_hal_burst_mode_enable(AM_HAL_STATUS_SUCCESS);
-		}
+        am_hal_burst_avail_e          eBurstModeAvailable;
+        am_hal_burst_mode_e           eBurstMode;
+        if ( am_hal_burst_mode_initialize(&eBurstModeAvailable) == AM_HAL_STATUS_SUCCESS )
+        {
+            am_hal_burst_mode_enable(AM_HAL_STATUS_SUCCESS);
+        }
     #endif
-	//*****************************************************************************
+    //*****************************************************************************
 
     // Select Sleep mode
-	//*****************************************************************************
+    //*****************************************************************************
     #ifdef deep_sleep
-		// deep sleep mode
-		am_hal_sysctrl_sleep(AM_HAL_SYSCTRL_SLEEP_DEEP);
+        // deep sleep mode
+        am_hal_sysctrl_sleep(AM_HAL_SYSCTRL_SLEEP_DEEP);
     #elif defined(normal_sleep)
-		// normal sleep mode
-		am_hal_sysctrl_sleep(AM_HAL_SYSCTRL_SLEEP_NORMAL);
+        // normal sleep mode
+        am_hal_sysctrl_sleep(AM_HAL_SYSCTRL_SLEEP_NORMAL);
     #endif
-	//*****************************************************************************
+    //*****************************************************************************
 
-	//*****************************************************************************
-	// Disable UART prints
+    //*****************************************************************************
+    // Disable UART prints
     am_bsp_uart_printf_disable();
 
-	// Disable Debug prints
+    // Disable Debug prints
     am_bsp_debug_printf_disable();
 
     // Disable the debugger GPIOs saves about 1.2 uA total
@@ -76,11 +76,11 @@ main(void)
     // and then disable them completely:
     am_hal_gpio_pinconfig(48 /* TXO-0 */, g_AM_HAL_GPIO_DISABLE);
     am_hal_gpio_pinconfig(49 /* RXI-0 */, g_AM_HAL_GPIO_DISABLE);
-	//*****************************************************************************
+    //*****************************************************************************
 
-	// Disable MCU peripherals
-	//*****************************************************************************
-	am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOS);
+    // Disable MCU peripherals
+    //*****************************************************************************
+    am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOS);
     am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM0);
     am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM1);
     am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM2);
@@ -94,13 +94,13 @@ main(void)
     am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_MSPI);
     am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_PDM);
     am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_BLEL);
-	//*****************************************************************************
+    //*****************************************************************************
 
-	// Blank while loop
-	//*****************************************************************************
+    // Blank while loop
+    //*****************************************************************************
     while (1)
     {
         // Do nothing
     }
-	//*****************************************************************************
+    //*****************************************************************************
 }
