@@ -20,8 +20,12 @@ Generically,
 ```
 make <make_target> BOARD=<board_target> COM_PORT=<port> PYTHON=<python> SVL_UPLOAD_BAUD=<baud_rate>
 ```
-a. It uses the [`Sparkfun Variable Loader`](https://learn.sparkfun.com/tutorials/artemis-development-with-arduino/bootloader-options) (SVL) Bootloader. If needed, the `Ambiq Secure Bootloader` (ASB) can also be used. 
-b. Specify and replace the corresponding fields in the make command as required.
-c. `<make_target>` = `clean`, `bootload_svl` and `bootload_asb`
-d. `<board_target` = `edge`, `edge2`, `artemis_devkit`, `redboard_artemis_atp`, etc
-e. `<port>` = `COMxx` on Windows, `/dev/ttyUSBx` on Linux
+  - It uses the [`Sparkfun Variable Loader`](https://learn.sparkfun.com/tutorials/artemis-development-with-arduino/bootloader-options) (SVL) Bootloader. If needed, the `Ambiq Secure Bootloader` (ASB) can also be used.
+  - Specify and replace the corresponding fields in the make command as required.
+  - `<make_target>` = `clean`, `bootload_svl` and `bootload_asb`
+  - `<board_target` = `edge`, `edge2`, `artemis_devkit`, `redboard_artemis_atp`, etc
+  - `<port>` = `COMxx` on Windows, `/dev/ttyUSBx` on Linux
+6. Evaluate the current / power consumption using the power profiler
+
+## Results
+![image](https://github.com/dhairyashah1/apollo3_power_consumption/assets/64425805/b38b0eda-f7aa-4812-9b45-0fc683499c39)
